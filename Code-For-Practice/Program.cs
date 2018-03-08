@@ -9,6 +9,7 @@ namespace Code_For_Practice
     {
         static void Main(string[] args)
         {
+            //
         }
     }
 }
