@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Code_For_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800">
+        Title="MainWindow" Height="500" Width="800" Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions >
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -19,10 +20,12 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Name="BtnStart" Content="Start" Grid.Row="0" Grid.Column="0" Margin="10" Click="BtnStart_Click"></Button>
+        <Button Name="BtnStart" Grid.Row="0" Grid.Column="0" Margin="10" Click="BtnStart_Click">
+            <Button.Content>Start</Button.Content>
+        </Button>
         <Button Name="BtnStop" Content="Stop" Grid.Row="0" Grid.Column="1" Margin="10" Click="BtnStop_Click"></Button>
         <TextBox Name="TbLog" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="10"></TextBox>
-        <Label Name="LbProcess" Grid.Row="0" Grid.Column="2" Content="Processing 0 %" Margin="10" HorizontalAlignment="Center"></Label>
-        <ProgressBar Name="BarProcess" Grid.Row="3" Grid.ColumnSpan="4" Margin="10"></ProgressBar> 
+        <Label Name="LbProcess" Grid.Row="3" Grid.Column="0" Content="Processing 0 %" Margin="10" HorizontalAlignment="Center"></Label>
+        <ProgressBar Name="BarProcess" Grid.Row="4" Grid.ColumnSpan="4" Margin="10"></ProgressBar>
     </Grid>
 </Window>
