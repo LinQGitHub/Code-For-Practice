@@ -12,13 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Numerics;
+
+using MathNet.Numerics;
+
+using ClassOfWpf;
+
 
 namespace Code_For_WPF
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
         private BackgroundWorker bgWorker = new BackgroundWorker();
 
@@ -57,7 +63,7 @@ namespace Code_For_WPF
             }
         }
         private void BtnStop_Click(object sender, RoutedEventArgs e)
-        {            
+        {
             //异步取消请求，需在耗时程序内检测取消请求
             bgWorker.CancelAsync();
         }
@@ -90,13 +96,13 @@ namespace Code_For_WPF
         {
             //在completed事件里，处理异步取消、处理结束错误、处理正常结束逻辑
             if (e.Cancelled)
-            {                
+            {
                 Log(1, "Process Cancelled !");
                 BarProcess.Value = 0;
                 LbProcess.Content = "Processing 0 %";
             }
             else
-            {                
+            {
                 if (e.Error != null)
                 {
                     MessageBox.Show(e.Error.ToString());
@@ -133,5 +139,43 @@ namespace Code_For_WPF
             bgWorker.ProgressChanged -= BgWorker_ProgressChanged;
             bgWorker.RunWorkerCompleted -= BgWorker_RunWorkerCompleted;
         }
+
+        private void BtnContinue_Click(object sender, RoutedEventArgs e)
+        {
+            Class0 class0 = new Class0();
+            class0.ClassMethod0(out Complex[] result);
+            foreach (var item in result)
+            {
+                Log(1, Convert.ToString(item.Real));
+                Log(1, Convert.ToString(item.Imaginary));
+            }
+           
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SubWindow_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+    }
+
+    class MyButton : Button
+    {
+        public Type UserWindowType { get; set; }
+
+        protected override void OnClick()
+        {
+            base.OnClick();
+            System.Windows.Window window = Activator.CreateInstance(this.UserWindowType) as System.Windows.Window;
+            if (window != null)
+            {
+                window.ShowDialog();
+            }
+        }
+
     }
 }

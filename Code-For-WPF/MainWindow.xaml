@@ -20,12 +20,38 @@
             <ColumnDefinition Width="*"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Name="BtnStart" Grid.Row="0" Grid.Column="0" Margin="10" Click="BtnStart_Click">
+        <Button Name="BtnStart" Click="BtnStart_Click">
+            <Grid.Row>0</Grid.Row>
+            <Grid.Column>0</Grid.Column>
+            <Button.Margin>10</Button.Margin>
             <Button.Content>Start</Button.Content>
         </Button>
-        <Button Name="BtnStop" Content="Stop" Grid.Row="0" Grid.Column="1" Margin="10" Click="BtnStop_Click"></Button>
-        <TextBox Name="TbLog" Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="10"></TextBox>
+        <Button Name="BtnStop" Click="BtnStop_Click">
+            <Grid.Row>0</Grid.Row>
+            <Grid.Column>1</Grid.Column>
+            <Button.Margin>10</Button.Margin>
+            <Button.Content>Stop</Button.Content>
+        </Button>
+        <Button Name="BtnContinue" Click="BtnContinue_Click">
+            <Grid.Row>0</Grid.Row>
+            <Grid.Column>2</Grid.Column>
+            <Button.Margin>10</Button.Margin>
+            <Button.Content>Continue</Button.Content>
+        </Button>
+        <TextBox Name="TbLog" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="10"></TextBox>
         <Label Name="LbProcess" Grid.Row="3" Grid.Column="0" Content="Processing 0 %" Margin="10" HorizontalAlignment="Center"></Label>
         <ProgressBar Name="BarProcess" Grid.Row="4" Grid.ColumnSpan="4" Margin="10"></ProgressBar>
+        <local:MyButton UserWindowType="{x:Type TypeName=local:SubWindow}">
+            <Grid.Row>0</Grid.Row>
+            <Grid.Column>3</Grid.Column>
+            <Button.Margin>10</Button.Margin>
+            <Button.Content>Show</Button.Content>
+        </local:MyButton>
+        <Button Name="SubWindow" Click="SubWindow_Click">
+            <Grid.Row>1</Grid.Row>
+            <Grid.Column>0</Grid.Column>
+            <Button.Margin>10</Button.Margin>
+            <Button.Content>Show</Button.Content>
+        </Button>
     </Grid>
 </Window>
