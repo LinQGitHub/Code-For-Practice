@@ -149,7 +149,7 @@ namespace Code_For_WPF
                 Log(1, Convert.ToString(item.Real));
                 Log(1, Convert.ToString(item.Imaginary));
             }
-           
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -160,6 +160,16 @@ namespace Code_For_WPF
         private void SubWindow_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void iTest_Click(object sender, RoutedEventArgs e)
+        {
+            Class0 class0 = new Class0();
+            List<double> srcData = new List<double>() { 0, 1.1111};
+
+            class0.FileProcess(AppDomain.CurrentDomain.BaseDirectory + "SourceData\\", "ADSL_MissTone_SourceData.txt", srcData);
+
+            Log(1, AppDomain.CurrentDomain.BaseDirectory + "SourceData\\");
         }
     }
 

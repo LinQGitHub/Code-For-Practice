@@ -53,5 +53,11 @@
             <Button.Margin>10</Button.Margin>
             <Button.Content>Show</Button.Content>
         </Button>
+        <Button Name="iTest" Click="iTest_Click">
+            <Grid.Row>1</Grid.Row>
+            <Grid.Column>1</Grid.Column>
+            <Button.Margin>10</Button.Margin>
+            <Button.Content>iTest</Button.Content>
+        </Button>
     </Grid>
 </Window>

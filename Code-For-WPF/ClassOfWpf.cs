@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Numerics;
 
 using MathNet.Numerics;
@@ -15,6 +19,19 @@ namespace ClassOfWpf
             //Fourier.Inverse(x, FourierOptions.Matlab);
             Fourier.Forward(x, FourierOptions.Matlab);
             _result = x;
+        }
+
+        public void FileProcess(string _path, string _file_name, List<double> _source_data)
+        {
+            Directory.CreateDirectory(_path);
+
+
+            List<string> sourceData = new List<string>();
+            foreach (var item in _source_data)
+            {
+                sourceData.Add(item.ToString());
+            }
+            File.WriteAllLines(_path + "\\" + _file_name, sourceData);       
         }
     }
 }
