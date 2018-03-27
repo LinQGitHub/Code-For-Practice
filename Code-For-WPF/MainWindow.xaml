@@ -59,5 +59,11 @@
             <Button.Margin>10</Button.Margin>
             <Button.Content>iTest</Button.Content>
         </Button>
+        <Button Name="MathNetTest" Click="MathNetTest_Click">
+            <Grid.Row>1</Grid.Row>
+            <Grid.Column>1</Grid.Column>
+            <Button.Margin>10</Button.Margin>
+            <Button.Content>MathNetTest</Button.Content>
+        </Button>
     </Grid>
 </Window>

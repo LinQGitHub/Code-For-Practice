@@ -142,13 +142,6 @@ namespace Code_For_WPF
 
         private void BtnContinue_Click(object sender, RoutedEventArgs e)
         {
-            Class0 class0 = new Class0();
-            class0.ClassMethod0(out Complex[] result);
-            foreach (var item in result)
-            {
-                Log(1, Convert.ToString(item.Real));
-                Log(1, Convert.ToString(item.Imaginary));
-            }
 
         }
 
@@ -170,6 +163,15 @@ namespace Code_For_WPF
             class0.FileProcess(AppDomain.CurrentDomain.BaseDirectory + "SourceData\\", "ADSL_MissTone_SourceData.txt", srcData);
 
             Log(1, AppDomain.CurrentDomain.BaseDirectory + "SourceData\\");
+        }
+
+        private void MathNetTest_Click(object sender, RoutedEventArgs e)
+        {
+            Class0 class0 = new Class0();
+            class0.MathNetMethod(out string result);
+
+            Log(1, result);
+
         }
     }
 
