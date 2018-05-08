@@ -15,9 +15,15 @@ using System.Windows.Shapes;
 using System.Numerics;
 
 using MathNet.Numerics;
-
 using ClassOfWpf;
 
+
+using System.Reflection;
+using System.IO;
+using MathWorks.MATLAB.NET.Arrays;
+using MathWorks.MATLAB.NET.Utility;
+using MatlabData;
+using MatlabDataNative;
 
 namespace Code_For_WPF
 {
@@ -158,7 +164,7 @@ namespace Code_For_WPF
         private void iTest_Click(object sender, RoutedEventArgs e)
         {
             Class0 class0 = new Class0();
-            List<double> srcData = new List<double>() { 0, 1.1111};
+            List<double> srcData = new List<double>() { 0, 1.1111 };
 
             class0.FileProcess(AppDomain.CurrentDomain.BaseDirectory + "SourceData\\", "ADSL_MissTone_SourceData.txt", srcData);
 
@@ -167,11 +173,23 @@ namespace Code_For_WPF
 
         private void MathNetTest_Click(object sender, RoutedEventArgs e)
         {
-            Class0 class0 = new Class0();
-            class0.MathNetMethod(out string result);
 
-            Log(1, result);
+            MWNumericArray missTone = new int[] { 1000, 2000 };
+            MWCharArray fileDir = "E:\\JiweiSung\\VisualStudioProject2017\\Code-For-Practice\\";
+            MWCharArray fileName = "NoNative";
+            MWNumericArray dslProfile = 4;
+            MWNumericArray upLimitPar = 16;
+            MWNumericArray lowLimitPar = 15;
+            MWNumericArray maxVoltage = 1;
+            MWNumericArray ifftSize = 65536;
+            MWNumericArray bitWidth = 16;
+            MWNumericArray instrPar = 16;
 
+            MatlabData.N8241aWfm n8241aData = new MatlabData.N8241aWfm();
+            MWArray[] realPar = n8241aData.DslWfmData(2, dslProfile, missTone, upLimitPar, lowLimitPar, maxVoltage, fileDir, fileName, ifftSize, bitWidth, instrPar);
+
+            Log(1, realPar[0].ToString());
+            Log(1, realPar[1].ToString());
         }
     }
 
